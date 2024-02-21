@@ -1,4 +1,4 @@
-Toss-Assignement-Env
+dbt-playground
 ======================
 
 # Execution
