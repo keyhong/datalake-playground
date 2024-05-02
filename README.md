@@ -1,6 +1,6 @@
 dbt-playground
 ======================
-purpose : https://keyhong.github.io/2024/02/21/Toy/side-project/
+description: https://keyhong.github.io/2024/02/21/Toy/side-project/
 
 | Pipeline Component                     | Version | Description              |
 |----------------------------------------|---------|--------------------------|
