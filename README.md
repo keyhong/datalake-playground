@@ -24,7 +24,7 @@ dbt-playground
 
 - hue나 hivesever2가 필요하시면 docker-compose.yml에서 주석을 풀어 사용가능합니다.
 
-## Start
+## Getting Started
 
 ```bash
 $ make build
