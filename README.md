@@ -28,6 +28,9 @@ description: https://keyhong.github.io/2024/02/21/Toy/side-project/
 ## Getting Started
 
 ```bash
+# multiple profiles docker compose up
+$ COMPOSE_PROFILES=trino,kudu,hive docker-compose up;
+
 $ make build
 
 $ make up
