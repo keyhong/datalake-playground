@@ -5,8 +5,8 @@ services:
   # CAdvisor
   #####################################################
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
     profiles: ["cadvisor"]
+    image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
     - 18080:18080
@@ -18,36 +18,11 @@ services:
     depends_on:
     - redis
   redis:
+    profiles: ["cadvisor"]
     image: redis:latest
     container_name: redis
     ports:
       - 6379:6379
-
-  #####################################################
-  # MySQL
-  #####################################################
-  mysql:
-    image: mysql:8.0.36-bullseye
-    container_name: mysql
-    env_file:
-      - ./.envs/.local/.mysql
-    environment:
-      TZ: Asia/Seoul
-    ports:
-      - 13306:3306
-    volumes:
-      - ./mnt/mysql:/var/lib/mysql
-      - ./init-sql/mysql:/docker-entrypoint-initdb.d
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
-      timeout: 45s
-      interval: 10s
-      retries: 10
-    command:
-      - --character-set-server=utf8
-      - --collation-server=utf8_unicode_ci
-
-    restart: unless-stopped
 
   #####################################################
   # Apache Hadoop
@@ -95,6 +70,31 @@ services:
     restart: unless-stopped
 
   #####################################################
+  # MySQL
+  #####################################################
+  mysql:
+    image: mysql:8.0.36-bullseye
+    container_name: mysql
+    env_file:
+      - ./.envs/.local/.mysql
+    environment:
+      TZ: Asia/Seoul
+    ports:
+      - 13306:3306
+    volumes:
+      - ./mnt/mysql:/var/lib/mysql
+      - ./init-sql/mysql:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    command:
+      - --character-set-server=utf8
+      - --collation-server=utf8_unicode_ci
+    restart: unless-stopped
+    
+  #####################################################
   # Apache Hive
   #####################################################
   hive-metastore:
@@ -121,7 +121,7 @@ services:
     restart: unless-stopped
 
   hive-server:
-    profiles: ["hive"]
+    profiles: ["hive-server"]
     build:
       context: .
       dockerfile: ./docker/hive/hive-server/Dockerfile
@@ -142,7 +142,7 @@ services:
     restart: unless-stopped
 
   hive-webhcat:
-    profiles: ["hive"]
+    profiles: ["hive-webhcat"]
     build:
       context: .
       dockerfile: ./docker/hive/hive-webhcat/Dockerfile
