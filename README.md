@@ -1,15 +1,16 @@
-dbt-playground
+datalake-playground
 ======================
 description: https://keyhong.github.io/2024/02/21/Toy/side-project/
 
 | Pipeline Component                     | Version | Description              |
 |----------------------------------------|---------|--------------------------|
 | [MySQL](https://www.mysql.com/)        | 8.36+   | Relational Database      |
-| [Hadoop](https://trino.io/)            | 3.3.6+  | Distributed Storage      |
+| [Hadoop](https://hadoop.apache.org/)   | 3.3.6+  | Distributed Storage      |
 | [Trino](https://trino.io/)             | 438+    | Query Engine             |
-| [Hive](https://trino.io/)              | 3.1.3   | Query Solution           |
+| [Hive](https://hive.apache.org/)       | 3.1.3   | Query Solution           |
 | [DBT](https://www.getdbt.com/)         | 1.7.1   | Analytics Framework      |
 | [Kudu](https://kudu.apache.org/)       | 2.3+    | Columnar Distributed Database |
+| [Airflow](https://airflow.apache.org/) | 2.7+    | Scheduler |
 
 # Execution
 
