@@ -10,7 +10,7 @@ from pathlib import Path
 import pendulum
 from airflow.decorators import dag
 from airflow.operators.bash import BashOperator
-from config.dag import build_default_args
+from config.dag_default_config import build_default_args
 
 dag_args = build_default_args()
 
