@@ -30,7 +30,7 @@ description: https://keyhong.github.io/2024/02/21/Toy/side-project/
 
 ```bash
 # multiple profiles docker compose up
-$ COMPOSE_PROFILES=trino,kudu,hive docker-compose up;
+$ COMPOSE_PROFILES=trino,kudu,hive,dbt docker-compose up --build -d --remove-orphans
 
 $ make build
 
