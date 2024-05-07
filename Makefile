@@ -15,7 +15,7 @@ down:
 	@ echo "docker compose docker-compose.yml down"
 	docker-compose -f docker-compose.yml down
 
-.PHONY: delete.a
+.PHONY: delete.all
 delete.all:
 	@ echo "docker compose docker-compose.yml down"
 	docker compose -f docker-compose.yml down -v --rmi all
