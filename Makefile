@@ -8,7 +8,7 @@ build:
 .PHONY: up
 up:
 	@ echo "docker compose docker-compose.yml up"
-	docker compose -f docker-compose.yml up --build -d --remove-orphans
+	COMPOSE_PROFILES=trino,kudu,hive,dbt docker-compose up --build -d --remove-orphans
 
 .PHONY: down
 down:
