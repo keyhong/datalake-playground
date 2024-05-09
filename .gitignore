@@ -11,5 +11,5 @@ __pycache__/
 # Mac
 .DS_Store
 
-### VS Code ###
+# VS Code
 .vscode/
