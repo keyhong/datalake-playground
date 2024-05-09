@@ -84,9 +84,30 @@ $ make delete.all
 
 2. docker compose 실행 시 아래와 같은 이미지가 나오면 성공적으로 컨테이너가 실행되었습니다.
 
-3. 실행 후 특정 플랫폼의 [웹 UI]()를 들어갔을 때 접속이 되지 않았다면 다시 빌드를 해야 합니다.
+<img src="./docs/docker-run-success.png" style="width:300px;height:auto;">
+
+3. 컨테이너 실행 후 특정 플랫폼의 [웹 UI](https://github.com/keyhong/datalake-playground?tab=readme-ov-file#pipeline-component) 접속이 되지 않았다면 다시 빌드를 해야 합니다.
+
+<img src="./docs/hadoop-namenode-web-ui.png" style="width:1000px;height:auto;" alt="hadoop namenode"> <hr>
+<img src="./docs/hive-server-2-web-ui.png" style="width:1000px;height:auto;" alt="hive-server-2"> <hr>
+<img src="./docs/kudu-master-web-ui.png" style="width:1000px;height:auto;" alt="kudu-master"> <hr>
+<img src="./docs/trino-web-ui.png" style="width:1000px;height:auto;" alt="hive-server-2"> <hr>
+<img src="./docs/airflow-web-ui.png" style="width:1000px;height:auto;" alt="airflow"> <hr>
+
+4. DBeaver에서 JDBC 접속(`jdbc:trino://localhost:8080`) 후 3개의 catalog(hive, kudu, mysql)이 보이면 정상입니다.
+
+<img src="./docs/dbeaver-trino.png" alt="image" style="width:300px;height:auto;">
+
+### Trino Test Code
+
+- Test Code는 `init-sql/trino` 디렉터리에 있습니다.
+
+- `test_code_1.sql`: Hive 카탈로그에 접속해 Schema, Table 생성 및 Data Insert, Select 테스트
+  
+<img src="./docs/trino-query-test1.png" alt="image" style="width:1000;height:auto;">
+
+- `test_code_2.sql`: 이기종 DB(Hive, Kudu) 테이블 간의 Union 연합 쿼리
+
+<img src="./docs/trino-query-test2.png" alt="image" style="width:1000;height:auto;">
 
 
-
-
-4. DBeaver에서 JDBC 접속(`jdbc:trino://localhost:8080`) 후 3개의 catalog(hive, kudu, mysql)이 보여야 합니다.
