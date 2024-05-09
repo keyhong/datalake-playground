@@ -153,6 +153,9 @@ services:
       dockerfile: ./base-images/hive/Dockerfile
     image: keyhong/custom-base-hive:v1.0.0
     container_name: hive-image-build
+    depends_on:
+      custom-base-hadoop:
+        condition: service_completed_successfully
     entrypoint: /bin/bash
     command: ["-c", "exec", "/entrypoint", "hive", "version"]
 
@@ -195,7 +198,7 @@ services:
     depends_on:
       <<: *hive-common-depends-on
       hive-metastore:
-        condition: service_completed_successfully
+        condition: service_healthy
     environment:
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
@@ -220,7 +223,7 @@ services:
     depends_on:
       <<: *hive-common-depends-on
       hiveserver2:
-        condition: service_completed_successfully
+        condition: service_healthy
     environment:
       - SERVICE_PRECONDITION=hiveserver2:10000
     healthcheck:
