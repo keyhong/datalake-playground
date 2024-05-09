@@ -10,14 +10,7 @@ down:
 
 .PHONY: delete.all
 delete.all:
-	@ echo "docker compose -f docker-compose.yml --profile '*' down"
+	@ echo "# docker compose -f docker-compose.yml --profile '*' down"
 	docker compose -f docker-compose.yml --profile '*' down -v --rmi all
 	@ echo "remove ./mnt/hadoop/*, ./mnt/mysql/*, ./mnt/schematool-check/* ./mnt/airflow/*"
 	rm -rf ./mnt/hadoop/* ./mnt/mysql/* ./mnt/schematool-check/* ./mnt/airflow/*
-
-delete.k:
-	@ echo "rm -rf ./mnt/hadoop/*, ./mnt/mysql/*, ./mnt/schematool-check/* ./mnt/airflow/*"
-	rm -rf ./mnt/hadoop/*
-	rm -rf ./mnt/mysql/*
-	rm -rf ./mnt/schematool-check/*
-	rm -rf ./mnt/airflow/*
