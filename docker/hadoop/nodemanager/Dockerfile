@@ -1,4 +1,4 @@
-FROM hadoop-base:latest
+FROM keyhong/custom-base-hadoop:v1.0.0
 
 COPY start-nodemanager.sh start-nodemanager.sh
 

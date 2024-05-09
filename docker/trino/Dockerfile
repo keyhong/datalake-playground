@@ -27,8 +27,7 @@ ARG TRINO_URL=https://repo1.maven.org/maven2/io/trino/trino-server/${TRINO_VERSI
 RUN wget -c -O trino.tar.gz ${TRINO_URL} \
     && tar -zxvf trino.tar.gz --directory=${TRINO_HOME} --strip 1 \
     && rm -rf trino.tar.gz \
-    && mkdir -p ${TRINO_HOME}/etc/catalog \
-    && mkdir -p /data/trino
+    && mkdir -p ${TRINO_HOME}/etc/catalog /data/trino
 
 # node.properties
 COPY ./conf/trino/node.properties ${TRINO_HOME}/etc
@@ -42,10 +41,8 @@ COPY ./conf/trino/log.properties ${TRINO_HOME}/etc
 # jvm.config
 COPY ./conf/trino/jvm.config ${TRINO_HOME}/etc
 
-# mysql.properties
-COPY ./conf/trino/catalog/hive.properties ${TRINO_HOME}/etc/catalog
-
-COPY ./conf/trino/catalog/kudu.properties ${TRINO_HOME}/etc/catalog
+# mysql.properties, kudu.properties, mysql.properties
+COPY ./conf/trino/catalog/* ${TRINO_HOME}/etc/catalog
 
 COPY --chmod=755 ./docker/trino/entrypoint.sh /entrypoint.sh
 

@@ -1,4 +1,4 @@
-FROM hadoop-base:latest
+FROM keyhong/custom-base-hadoop:v1.0.0
 
 ARG HIVE_VERSION=3.1.3
 

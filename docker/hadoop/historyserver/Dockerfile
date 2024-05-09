@@ -1,5 +1,4 @@
-FROM hadoop-base:latest
-LABEL maintainer="MarcLamberti"
+FROM keyhong/custom-base-hadoop:v1.0.0
 
 RUN mkdir -p /hadoop/yarn/timeline
 
