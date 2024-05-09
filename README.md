@@ -111,3 +111,10 @@ $ make delete.all
 <img src="./docs/trino-query-test2.png" alt="image" style="width:1000;height:auto;">
 
 
+## Next Challenge
+
+- 클린코드를 위한 파이썬 정적 분석 도구 및 빌드 시스템 보완 (black, ruff, isort, mypy, poetry)
+- 정적 분석 자동화를 위한 CI (workflows) 보완 (pre-commit)
+- DBT-Airflow 연계 ETL/ELT 시뮬레이션
+
+
