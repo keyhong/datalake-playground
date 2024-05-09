@@ -10,7 +10,6 @@
         invalid_hard_deletes=True
     )
 }}
-
 SELECT
     *
 FROM {{ source("hdfs_source", "customer_info") }}
