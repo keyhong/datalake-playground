@@ -3,7 +3,7 @@ datalake-playground
 
 ## Description
 
-- 여러 스토리지(RDB, HDFS, Columnar Storage), 이기종 간의 쿼리(Trino), 스케줄러(Airflow), ETL/ELT(DBT)를 로컬에서 테스트할 수 있는 DataLake Playground
+여러 스토리지(RDB, HDFS, Columnar Storage), 이기종 간의 쿼리(Trino), 스케줄러(Airflow), ETL/ELT(DBT)를 로컬에서 테스트할 수 있는 DataLake Playground
 
 ## Pipeline Component
 
@@ -21,7 +21,7 @@ datalake-playground
 
 | Pipeline Component                     | User              | Password                      | Database                        |
 |----------------------------------------|-------------------|-------------------------------|---------------------------------|
-| [MySQL](https://www.mysql.com/)        | root              | root                          | default ß                        |
+| [MySQL](https://www.mysql.com/)        | root              | root                          | default                         |
 | [MySQL](https://www.mysql.com/)        | airflow           | airflow                       | airflow_db                      |
 | [Trino](https://trino.io/)             | Allowing all      | -                             | 8080                            |
 | [Hive](https://hive.apache.org/)       | hive              | hive                          | default                         | 
@@ -31,7 +31,7 @@ datalake-playground
 
 ## Execution
 
-- 수동 실치하는 아파치 오픈소스 아파치 미러 서버(CDN)에서 다운받도록 하여, 속도를 개선하였습니다. 하지만 네트워크에 따라 설치가 느릴 수 있습니다.
+ubuntu 이미지 위에 수동 설치하는 아파치 오픈소스는 아파치 미러 서버(CDN)에서 다운받도록 하여, 전반적인 설치 속도를 개선하였습니다. 하지만 사용자의 네트워크 환경에 따라 크게 달라질 수 있어, 네트워크가 원활한 환경에서 설치해주시는 것이 좋습니다.
 
 
 ### MySQL
